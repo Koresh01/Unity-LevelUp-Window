@@ -8,7 +8,7 @@ public class ProgressListener : MonoBehaviour
     [Inject]
     SpheresSpawner spheresSpawner;
     [Inject]
-    LevelUpPanelView upgradeLevelPanel;
+    PanelEnabler panelEnabler;
 
     [Tooltip("Текущий score.")]
     [SerializeField] int progress = 0;
@@ -47,6 +47,6 @@ public class ProgressListener : MonoBehaviour
     {
         Level = newLvL;
         spheresSpawner.StopSpawning();
-        upgradeLevelPanel.Show();
+        panelEnabler.Show();
     }
 }

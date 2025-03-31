@@ -13,7 +13,7 @@ public class SceneInstaller : MonoInstaller
     [SerializeField] private ProgressListener progressListener;
 
     [Tooltip("Окошко апгрейда уровня.")]
-    [SerializeField] private LevelUpPanelView upgradeLevelPanel;
+    [SerializeField] private PanelEnabler panelEnabler;
 
     public override void InstallBindings()
     {
@@ -22,7 +22,7 @@ public class SceneInstaller : MonoInstaller
 
         Container.Bind<Camera>().FromInstance(cameraMain).AsSingle();
         Container.Bind<ProgressListener>().FromInstance(progressListener).AsSingle();
-        Container.Bind<LevelUpPanelView>().FromInstance(upgradeLevelPanel).AsSingle();
+        Container.Bind<PanelEnabler>().FromInstance(panelEnabler).AsSingle();
     }
 }
 

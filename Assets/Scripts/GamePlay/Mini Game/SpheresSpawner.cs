@@ -48,7 +48,7 @@ public class SpheresSpawner : MonoBehaviour
             Vector3 spawnPos = GetRandomPositionInsideCollider();
             _container.InstantiatePrefab(_spherePrefab, spawnPos, Quaternion.identity, null);
             // Instantiate(_spherePrefab, spawnPos, Quaternion.identity); так нельзя, иначе сфера не получит зависимость ProgressListener.
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(4f);
         }
     }
 

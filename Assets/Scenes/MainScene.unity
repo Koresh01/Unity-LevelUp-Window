@@ -1390,7 +1390,7 @@ GameObject:
   - component: {fileID: 741857849}
   - component: {fileID: 741857848}
   m_Layer: 5
-  m_Name: Button (CLAIM)
+  m_Name: Button (get 1X)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1604,6 +1604,7 @@ Transform:
   - {fileID: 399480840}
   - {fileID: 1558025069}
   - {fileID: 1008655293}
+  - {fileID: 1109977541}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &788959376
@@ -2193,7 +2194,38 @@ MonoBehaviour:
   spheresSpawner: {fileID: 399480842}
   cameraMain: {fileID: 330585545}
   progressListener: {fileID: 1008655294}
-  upgradeLevelPanel: {fileID: 1856818591}
+  panelEnabler: {fileID: 1856818592}
+--- !u!1 &1109977540
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1109977541}
+  m_Layer: 0
+  m_Name: Resources Listener
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1109977541
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1109977540}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 785462204}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1121462758
 GameObject:
   m_ObjectHideFlags: 0
@@ -2833,6 +2865,7 @@ GameObject:
   - component: {fileID: 1856818590}
   - component: {fileID: 1856818589}
   - component: {fileID: 1856818591}
+  - component: {fileID: 1856818592}
   m_Layer: 5
   m_Name: Panel (Level UP)
   m_TagString: Untagged
@@ -2853,8 +2886,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 400913033}
-  - {fileID: 2072715647}
   - {fileID: 741857847}
+  - {fileID: 2072715647}
   m_Father: {fileID: 524589090}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2912,6 +2945,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efba8547e889c6a48b83c9f676694f44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  get1X: {fileID: 741857848}
+  get2X: {fileID: 2072715648}
+--- !u!114 &1856818592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1856818587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65f4f25fd024ac94aa79d292badb88d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rectTransform: {fileID: 1856818588}
 --- !u!1 &1913171942
 GameObject:
   m_ObjectHideFlags: 0
