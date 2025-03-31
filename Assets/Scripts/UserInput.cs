@@ -39,7 +39,7 @@ public class UserInput : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask))
         {
-            Debug.Log("Луч столкнулся с коллайдером: " + hit.collider.name);
+            // Debug.Log("Луч столкнулся с коллайдером: " + hit.collider.name);
             Sphere sphere = hit.collider.GetComponent<Sphere>();
 
             if (sphere != null)

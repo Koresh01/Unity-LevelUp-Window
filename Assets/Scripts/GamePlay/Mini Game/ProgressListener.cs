@@ -1,9 +1,25 @@
+using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 [AddComponentMenu("Custom/ProgressListener(Контроллер прогресса)")]
 public class ProgressListener : MonoBehaviour 
 {
+    [Inject]
+    SpheresSpawner spheresSpawner;
+    [Inject]
+    LevelUpPanelView upgradeLevelPanel;
+
+    [Tooltip("Текущий score.")]
     [SerializeField] int progress = 0;
+
+    [Tooltip("Текущий LVL.")]
+    [SerializeField] int Level = 0;
+
+    [Tooltip("Порог каждого уровня.")]
+    [SerializeField] List<int> levelsPrice;
+    
+
 
     /// <summary>
     /// Инкремент прогресса.
@@ -11,5 +27,26 @@ public class ProgressListener : MonoBehaviour
     public void IncProgress()
     {
         progress++;
+        HandleProgress();
+    }
+
+    void HandleProgress()
+    {
+        int cumulativeSum = 0;
+        for (int lvl = 0; lvl < levelsPrice.Count; lvl++)
+        {
+            if (progress == cumulativeSum)
+            {
+                UpgradeLevel(lvl);
+            }
+            cumulativeSum += levelsPrice[lvl];
+        }
+    }
+
+    void UpgradeLevel(int newLvL)
+    {
+        Level = newLvL;
+        spheresSpawner.StopSpawning();
+        upgradeLevelPanel.Show();
     }
 }

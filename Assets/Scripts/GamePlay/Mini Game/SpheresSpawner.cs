@@ -12,12 +12,30 @@ public class SpheresSpawner : MonoBehaviour
     [SerializeField] private GameObject _spherePrefab;
     private BoxCollider _spawnCollider;
 
+    Coroutine _spawnCoroutine;
+
     private void Start()
     {
         _spawnCollider = GetComponent<BoxCollider>();
-        StartCoroutine(SpawnSpheres());
+        StartSpawning();
     }
 
+    /// <summary>
+    /// Запуск интервального спавна шариков.
+    /// </summary>
+    public void StartSpawning()
+    {
+        _spawnCoroutine = StartCoroutine(SpawnSpheres());
+        
+    }
+
+    /// <summary>
+    /// Остановка интервального спавна шариков.
+    /// </summary>
+    public void StopSpawning()
+    {
+        StopCoroutine(_spawnCoroutine);
+    }
 
     /// <summary>
     /// Спавнит сферы с интервалом в 3 секунды.

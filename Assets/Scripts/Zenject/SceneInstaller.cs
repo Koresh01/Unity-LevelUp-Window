@@ -12,6 +12,9 @@ public class SceneInstaller : MonoInstaller
     [Tooltip("Контроллер прогресса.")]
     [SerializeField] private ProgressListener progressListener;
 
+    [Tooltip("Окошко апгрейда уровня.")]
+    [SerializeField] private LevelUpPanelView upgradeLevelPanel;
+
     public override void InstallBindings()
     {
         // Указывает, что SpheresSpawner будет одним и тем же объектом во всей игре.
@@ -19,6 +22,7 @@ public class SceneInstaller : MonoInstaller
 
         Container.Bind<Camera>().FromInstance(cameraMain).AsSingle();
         Container.Bind<ProgressListener>().FromInstance(progressListener).AsSingle();
+        Container.Bind<LevelUpPanelView>().FromInstance(upgradeLevelPanel).AsSingle();
     }
 }
 

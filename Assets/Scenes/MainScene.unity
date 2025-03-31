@@ -329,7 +329,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 90
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -355,13 +355,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.22459938, z: -0, w: 0.9744512}
-  m_LocalPosition: {x: -4.93, y: 1, z: -10.66}
+  m_LocalRotation: {x: 0.17641282, y: 0.29742476, z: -0.05601939, w: 0.9366317}
+  m_LocalPosition: {x: -4.41, y: 4.26, z: -6.72}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 25.959, z: 0}
+  m_LocalEulerAnglesHint: {x: 21.333, y: 35.234, z: 0}
 --- !u!114 &330585547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -833,9 +833,9 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 176216200}
-  - {fileID: 788959377}
   - {fileID: 1622988246}
   - {fileID: 1287279740}
+  - {fileID: 788959377}
   m_Father: {fileID: 987109179}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -2004,6 +2004,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   progress: 0
+  Level: 0
+  levelsPrice: 020000000200000002000000
 --- !u!1 &1032466770
 GameObject:
   m_ObjectHideFlags: 0
@@ -2191,6 +2193,7 @@ MonoBehaviour:
   spheresSpawner: {fileID: 399480842}
   cameraMain: {fileID: 330585545}
   progressListener: {fileID: 1008655294}
+  upgradeLevelPanel: {fileID: 1856818591}
 --- !u!1 &1121462758
 GameObject:
   m_ObjectHideFlags: 0
@@ -2829,6 +2832,7 @@ GameObject:
   - component: {fileID: 1856818588}
   - component: {fileID: 1856818590}
   - component: {fileID: 1856818589}
+  - component: {fileID: 1856818591}
   m_Layer: 5
   m_Name: Panel (Level UP)
   m_TagString: Untagged
@@ -2896,6 +2900,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1856818587}
   m_CullTransparentMesh: 1
+--- !u!114 &1856818591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1856818587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efba8547e889c6a48b83c9f676694f44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1913171942
 GameObject:
   m_ObjectHideFlags: 0
