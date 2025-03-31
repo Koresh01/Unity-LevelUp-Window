@@ -3,26 +3,34 @@ using Zenject;
 
 public class SceneInstaller : MonoInstaller
 {
-    //[SerializeField] private Player player;
+    [Tooltip("Спавнер шариков.")]
+    [SerializeField] private SpheresSpawner spheresSpawner;
+
+    [Tooltip("Камера.")]
+    [SerializeField] private Camera cameraMain;
 
     public override void InstallBindings()
     {
-        // Привязываем переданные объекты
-        //Container.BindInstance(player).AsSingle();
+        // Указывает, что SpheresSpawner будет одним и тем же объектом во всей игре.
+        Container.Bind<SpheresSpawner>().FromInstance(spheresSpawner).AsSingle();
+
+        Container.Bind<Camera>().FromInstance(cameraMain).AsSingle();
     }
 }
+
+
 /*
- И если где то в коде мне понадобится скрипт Player, то достаточно будет прописать:
+ И если где то в коде мне понадобится скрипт SpheresSpawner, то достаточно будет прописать:
 using UnityEngine;
 using Zenject;
 
 public class Enemy : MonoBehaviour
 {
-    [Inject] private Player _player;
+    [Inject] private SpheresSpawner spheresSpawner;
 
     private void Start()
     {
-        Debug.Log("Player получен: " + _player.name);
+        Debug.Log("spheresSpawner получен: " + spheresSpawner.name);
     }
 }
  */
