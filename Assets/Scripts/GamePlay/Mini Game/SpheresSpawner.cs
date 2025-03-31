@@ -1,9 +1,14 @@
 using UnityEngine;
 using System.Collections;
+using Zenject;
+using UnityEngine.UIElements;
 
-[AddComponentMenu("Custom/(Логика появления сфер)")]
+[AddComponentMenu("Custom/SpheresSpawner(Логика появления сфер)")]
 public class SpheresSpawner : MonoBehaviour
 {
+    [Inject]
+    private readonly DiContainer _container;
+
     [SerializeField] private GameObject _spherePrefab;
     private BoxCollider _spawnCollider;
 
@@ -23,7 +28,8 @@ public class SpheresSpawner : MonoBehaviour
         while (true)
         {
             Vector3 spawnPos = GetRandomPositionInsideCollider();
-            Instantiate(_spherePrefab, spawnPos, Quaternion.identity);
+            _container.InstantiatePrefab(_spherePrefab, spawnPos, Quaternion.identity, null);
+            // Instantiate(_spherePrefab, spawnPos, Quaternion.identity); так нельзя, иначе сфера не получит зависимость ProgressListener.
             yield return new WaitForSeconds(3f);
         }
     }

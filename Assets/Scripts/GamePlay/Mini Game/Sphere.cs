@@ -1,9 +1,13 @@
 using UnityEngine;
 using System.Collections;
+using Zenject;
 
-[AddComponentMenu("Custom Sphere/(Логика сферы)")]
+[AddComponentMenu("Custom/Sphere(Логика сферы)")]
 public class Sphere : MonoBehaviour
 {
+    [Inject]
+    ProgressListener progressListener;
+
     [SerializeField] private Renderer objectRenderer;
     [SerializeField] private float dissolveDuration = 1.5f;
 
@@ -55,6 +59,7 @@ public class Sphere : MonoBehaviour
     {
         StopAllCoroutines();
         StartCoroutine(DestroyAfterDissolve());
+        progressListener.IncProgress();
     }
 
     private IEnumerator DestroyAfterDissolve()

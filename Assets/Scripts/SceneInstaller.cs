@@ -9,12 +9,16 @@ public class SceneInstaller : MonoInstaller
     [Tooltip("Камера.")]
     [SerializeField] private Camera cameraMain;
 
+    [Tooltip("Контроллер прогресса.")]
+    [SerializeField] private ProgressListener progressListener;
+
     public override void InstallBindings()
     {
         // Указывает, что SpheresSpawner будет одним и тем же объектом во всей игре.
         Container.Bind<SpheresSpawner>().FromInstance(spheresSpawner).AsSingle();
 
         Container.Bind<Camera>().FromInstance(cameraMain).AsSingle();
+        Container.Bind<ProgressListener>().FromInstance(progressListener).AsSingle();
     }
 }
 
