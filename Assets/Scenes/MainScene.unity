@@ -711,7 +711,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 176216200}
-  - {fileID: 1044350442}
   - {fileID: 788959377}
   - {fileID: 1622988246}
   - {fileID: 1287279740}
@@ -771,6 +770,7 @@ GameObject:
   - component: {fileID: 521007952}
   - component: {fileID: 521007954}
   - component: {fileID: 521007953}
+  - component: {fileID: 521007955}
   m_Layer: 5
   m_Name: "Image (\u0431\u0430\u043D\u0442 \u0441\u0432\u0435\u0440\u0445\u0443)"
   m_TagString: Untagged
@@ -836,6 +836,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 521007951}
   m_CullTransparentMesh: 1
+--- !u!114 &521007955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 521007951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3345aa56d40547140b30b955bbc489ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTransform: {fileID: 521007952}
+  scaleFactor: 1.1
+  animationDuration: 1
 --- !u!1 &524589086
 GameObject:
   m_ObjectHideFlags: 0
@@ -1883,7 +1898,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 418665868}
+  m_Father: {fileID: 1622988246}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2475,6 +2490,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1622988246}
+  - component: {fileID: 1622988247}
   m_Layer: 5
   m_Name: "\u041B\u0435\u0432\u0430\u044F \u0432\u043A\u043B\u0430\u0434\u043A\u0430"
   m_TagString: Untagged
@@ -2494,6 +2510,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1044350442}
   - {fileID: 176087990}
   - {fileID: 1121462759}
   - {fileID: 1544139192}
@@ -2506,6 +2523,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1622988247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1622988245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3345aa56d40547140b30b955bbc489ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTransform: {fileID: 1622988246}
+  scaleFactor: 1.04
+  animationDuration: 1
 --- !u!1 &1709697128
 GameObject:
   m_ObjectHideFlags: 0
@@ -2549,7 +2581,6 @@ GameObject:
   - component: {fileID: 1856818588}
   - component: {fileID: 1856818590}
   - component: {fileID: 1856818589}
-  - component: {fileID: 1856818591}
   m_Layer: 5
   m_Name: Panel (Level UP)
   m_TagString: Untagged
@@ -2617,19 +2648,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1856818587}
   m_CullTransparentMesh: 1
---- !u!114 &1856818591
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1856818587}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3345aa56d40547140b30b955bbc489ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetImage: {fileID: 521007953}
 --- !u!1 &1913171942
 GameObject:
   m_ObjectHideFlags: 0
@@ -2867,6 +2885,7 @@ GameObject:
   - component: {fileID: 2072715650}
   - component: {fileID: 2072715649}
   - component: {fileID: 2072715648}
+  - component: {fileID: 2072715651}
   m_Layer: 5
   m_Name: Button (get 2X)
   m_TagString: Untagged
@@ -2975,6 +2994,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2072715646}
   m_CullTransparentMesh: 1
+--- !u!114 &2072715651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2072715646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3345aa56d40547140b30b955bbc489ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTransform: {fileID: 2072715647}
+  scaleFactor: 1.1
+  animationDuration: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
