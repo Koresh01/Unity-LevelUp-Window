@@ -1,9 +1,21 @@
 using UnityEngine;
+using UnityEngine.UI;
 using DG.Tweening;
+using Zenject;
+using TMPro;
 
 [AddComponentMenu("Custom/PanelEnabler(Контроллер вкл+выкл)")]
 public class PanelEnabler : MonoBehaviour
 {
+    [Inject]
+    SpheresSpawner spheresSpawner;
+
+    [Inject]
+    ProgressListener progressListener;
+
+    [Tooltip("Text текущий уровень.")]
+    [SerializeField] TextMeshProUGUI curLevel;
+
     [Tooltip("Rect всей панельки.")]
     [SerializeField] RectTransform rectTransform;
 
@@ -13,6 +25,9 @@ public class PanelEnabler : MonoBehaviour
     public void Show()
     {
         gameObject.SetActive(true);
+
+        // Отображаем номер текущего уровня:
+        curLevel.text = $"- LEVEL {progressListener.Level} -";
 
         // Устанавливаем начальный scale = 0
         rectTransform.localScale = Vector3.zero;
@@ -32,5 +47,8 @@ public class PanelEnabler : MonoBehaviour
         // Запускаем анимацию уменьшения scale до минимального значения
         rectTransform.DOScale(Vector3.zero, 0.7f) // 1f - время анимации
             .OnComplete(() => gameObject.SetActive(false)); // Выключаем объект после завершения анимации
+
+        // Снова продолжаем спавнить шарики:
+        spheresSpawner.StartSpawning();
     }
 }

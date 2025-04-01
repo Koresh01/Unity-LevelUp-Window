@@ -7,6 +7,8 @@ public class PanelView : MonoBehaviour
 {
     [Inject]
     PanelEnabler panelEnabler;
+    [Inject]
+    ResourcesListener resourcesListener;
 
     [SerializeField] Button get1X;
     [SerializeField] Button get2X;
@@ -26,13 +28,22 @@ public class PanelView : MonoBehaviour
     void OnGet1X()
     {
         // начисление ресурсов
+        resourcesListener.AddCurrency(MyResources.Coins, 5);
+        resourcesListener.AddCurrency(MyResources.TimeBender, 5);
+        resourcesListener.AddCurrency(MyResources.DepositOverride, 5);
+        // Закрытие панели
         panelEnabler.Close();
     }
 
     void OnGet2X()
     {
-        // показ рекламы
+        // показ рекламы...
+
         // начисление 2х * ресурсов
+        resourcesListener.AddCurrency(MyResources.Coins, 10);
+        resourcesListener.AddCurrency(MyResources.TimeBender, 10);
+        resourcesListener.AddCurrency(MyResources.DepositOverride, 10);
+        //закрытие панели
         panelEnabler.Close();
     }
 }

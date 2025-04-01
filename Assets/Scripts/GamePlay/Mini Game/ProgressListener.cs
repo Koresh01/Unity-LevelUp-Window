@@ -14,7 +14,7 @@ public class ProgressListener : MonoBehaviour
     [SerializeField] int progress = 0;
 
     [Tooltip("Текущий LVL.")]
-    [SerializeField] int Level = 0;
+    public int Level = 0;
 
     [Tooltip("Порог каждого уровня.")]
     [SerializeField] List<int> levelsPrice;

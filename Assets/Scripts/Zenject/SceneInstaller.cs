@@ -15,6 +15,9 @@ public class SceneInstaller : MonoInstaller
     [Tooltip("Окошко апгрейда уровня.")]
     [SerializeField] private PanelEnabler panelEnabler;
 
+    [Tooltip("Контроллер накопленных ресурсов.")]
+    [SerializeField] private ResourcesListener resourcesListener;
+
     public override void InstallBindings()
     {
         // Указывает, что SpheresSpawner будет одним и тем же объектом во всей игре.
@@ -23,6 +26,7 @@ public class SceneInstaller : MonoInstaller
         Container.Bind<Camera>().FromInstance(cameraMain).AsSingle();
         Container.Bind<ProgressListener>().FromInstance(progressListener).AsSingle();
         Container.Bind<PanelEnabler>().FromInstance(panelEnabler).AsSingle();
+        Container.Bind<ResourcesListener>().FromInstance(resourcesListener).AsSingle();
     }
 }
 
