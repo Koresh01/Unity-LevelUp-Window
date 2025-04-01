@@ -9,7 +9,15 @@ public class SpheresSpawner : MonoBehaviour
     [Inject]
     private readonly DiContainer _container;
 
+    [Inject]
+    SoundManager _soundManager;
+
     [SerializeField] private GameObject _spherePrefab;
+
+    [Tooltip("Текущая сфера")]
+    [SerializeField] private GameObject _curSphere;
+
+    [Tooltip("Область спавна шариков.")]
     private BoxCollider _spawnCollider;
 
     Coroutine _spawnCoroutine;
@@ -37,18 +45,24 @@ public class SpheresSpawner : MonoBehaviour
         StopCoroutine(_spawnCoroutine);
     }
 
-    /// <summary>
-    /// Спавнит сферы с интервалом в 3 секунды.
-    /// </summary>
-    /// <returns></returns>
+
     private IEnumerator SpawnSpheres()
     {
-        while (true)
+        while (true)  // Цикл будет продолжаться, пока объект не удален.
         {
-            Vector3 spawnPos = GetRandomPositionInsideCollider();
-            _container.InstantiatePrefab(_spherePrefab, spawnPos, Quaternion.identity, null);
-            // Instantiate(_spherePrefab, spawnPos, Quaternion.identity); так нельзя, иначе сфера не получит зависимость ProgressListener.
-            yield return new WaitForSeconds(4f);
+            if (_curSphere == null)  // Проверка на то, что текущий шарик удален.
+            {
+                yield return new WaitForSeconds(0.2f);  // Задержка перед спавном нового шарика.
+
+                _soundManager.PlayButtonClick();
+
+                Vector3 spawnPos = GetRandomPositionInsideCollider();
+
+                // Не через Instantiate!!!
+                _curSphere = _container.InstantiatePrefab(_spherePrefab, spawnPos, Quaternion.identity, null);
+            }
+
+            yield return null;  // Переход к следующему кадру.
         }
     }
 

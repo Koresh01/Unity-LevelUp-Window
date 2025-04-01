@@ -9,6 +9,8 @@ public class PanelView : MonoBehaviour
     PanelEnabler panelEnabler;
     [Inject]
     ResourcesListener resourcesListener;
+    [Inject]
+    SoundManager _soundManager;
 
     [SerializeField] Button get1X;
     [SerializeField] Button get2X;
@@ -33,6 +35,8 @@ public class PanelView : MonoBehaviour
         resourcesListener.AddCurrency(MyResources.DepositOverride, 5);
         // Закрытие панели
         panelEnabler.Close();
+
+        _soundManager.PlayButtonClick();
     }
 
     void OnGet2X()
@@ -45,5 +49,7 @@ public class PanelView : MonoBehaviour
         resourcesListener.AddCurrency(MyResources.DepositOverride, 10);
         //закрытие панели
         panelEnabler.Close();
+
+        _soundManager.PlayButtonClick();
     }
 }

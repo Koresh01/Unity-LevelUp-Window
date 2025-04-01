@@ -9,7 +9,10 @@ public class UserInput : MonoBehaviour
 {
     [Inject]
     Camera cam;
-    
+
+    [Inject]
+    SoundManager soundManager;
+
     private InputActions _inputActions;
 
     private void Awake()
@@ -44,6 +47,7 @@ public class UserInput : MonoBehaviour
 
             if (sphere != null)
             {
+                soundManager.PlayButtonClick();
                 sphere.SelfDestruction();
             }
         }

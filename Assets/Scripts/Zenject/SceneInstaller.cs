@@ -18,6 +18,9 @@ public class SceneInstaller : MonoInstaller
     [Tooltip("Контроллер накопленных ресурсов.")]
     [SerializeField] private ResourcesListener resourcesListener;
 
+    [Tooltip("Менеджер звуков.")]
+    [SerializeField] private SoundManager soundManager;
+
     public override void InstallBindings()
     {
         // Указывает, что SpheresSpawner будет одним и тем же объектом во всей игре.
@@ -27,6 +30,7 @@ public class SceneInstaller : MonoInstaller
         Container.Bind<ProgressListener>().FromInstance(progressListener).AsSingle();
         Container.Bind<PanelEnabler>().FromInstance(panelEnabler).AsSingle();
         Container.Bind<ResourcesListener>().FromInstance(resourcesListener).AsSingle();
+        Container.Bind<SoundManager>().FromInstance(soundManager).AsSingle();
     }
 }
 

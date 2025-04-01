@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.UI;
+using System.Collections;
 using DG.Tweening;
 using Zenject;
 using TMPro;
@@ -24,6 +24,10 @@ public class PanelEnabler : MonoBehaviour
     /// </summary>
     public void Show()
     {
+        // Прекращаем спавнить шарики:
+        spheresSpawner.StopSpawning();
+
+
         gameObject.SetActive(true);
 
         // Отображаем номер текущего уровня:

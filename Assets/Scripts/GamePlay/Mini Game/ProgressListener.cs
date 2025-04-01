@@ -46,7 +46,6 @@ public class ProgressListener : MonoBehaviour
     void UpgradeLevel(int newLvL)
     {
         Level = newLvL;
-        spheresSpawner.StopSpawning();
         panelEnabler.Show();
     }
 }
